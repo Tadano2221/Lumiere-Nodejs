@@ -1,0 +1,50 @@
+header {
+    background-color: rgb(67, 102, 207);
+    height: 100px;
+}
+
+h1 {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 5px;
+}
+
+.header {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px;
+}
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p,
+label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.mission,
+.help {
+    background-color: rgb(231, 230, 230);
+    text-align: center;
+}
+
+.missiontext {
+    padding: 20px;
+    font-stretch: ultra-condensed;
+}
+
+iframe,
+h2 {
+    padding: 10px;
+}
+
+.form {
+    background-color: rgb(231, 230, 230);
+    padding: 5px;
+}
+
+.news {
+    background-color: bisque;
+}
