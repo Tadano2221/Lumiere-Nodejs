@@ -1,13 +1,17 @@
+//after following changes, it works for me by running "node js/server.js" from your root directory.The website looks good!
+//I didn't have any zsh permission error. Normally it happens because you don't have read/write permission to your file, you need to modify that
+//or you can try to do "sudo node js/server.js" see if it helps
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const hostname = '127.0.0.1n';
+const hostname = '127.0.0.1'; //I need to delete the last n here to make it work
 const port = 3000;
 
+//suggestion: You might want to put the relative path instead of full path so other people don't need to modify it
 const server = http.createServer((req, res) => {
     if (req.url === '/') {
-        fs.readFile('/Users/chitkoko/Desktop/Code/Lumiere/Homepage/Lumierejs/html/index.html', 'utf8', (err, data) => {
+        fs.readFile('../html/index.html', 'utf8', (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.setHeader('Content-Type', 'text/plain');
@@ -15,7 +19,7 @@ const server = http.createServer((req, res) => {
                 return;
             }
 
-            const styles = fs.readFileSync('/Users/chitkoko/Desktop/Code/Lumiere/Homepage/Lumierejs/css/styles.css', 'utf8');
+            const styles = fs.readFileSync('../css/styles.css', 'utf8');
 
             const updatedData = data.replace('</head>', `<style>${styles}</style></head>`);
 
@@ -24,7 +28,7 @@ const server = http.createServer((req, res) => {
             res.end(updatedData);
         });
     } else if (req.url === '/styles.css') {
-        const cssPath = '/Users/chitkoko/Desktop/Code/Lumiere/Homepage/Lumierejs/css/styles.css';
+        const cssPath = '../css/styles.css';
         fs.readFile(cssPath, 'utf8', (err, data) => {
             if (err) {
                 res.statusCode = 500;
