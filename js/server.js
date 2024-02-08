@@ -47,3 +47,19 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+    socket.on('send name', (user) => {
+        io.emit('send name', user);
+    });
+
+    socket.on('send message', (chat) => {
+        io.emit('send message', chat);
+    });
+});
+
+server.listen(port, () => {
+    console.log(`Server is listening at the port: ${port}`);
+});
